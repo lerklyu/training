@@ -13,35 +13,33 @@ public class BankAccount {
                        String accountNumber,
                        double balance,
                        boolean isBlocked) {
+        checkConditions(ownerName, accountNumber, balance, isBlocked);
         this.ownerName = ownerName;
         this.accountNumber = accountNumber;
         this.balance = balance;
         this.isBlocked = isBlocked;
-        checkConditions();
     }
 
     public BankAccount(String ownerName,
                        String accountNumber,
-                       boolean isBlocked) {
+                       boolean isBlocked)  {
         this(ownerName, accountNumber, 0, isBlocked);
-        checkConditions();
     }
 
     public BankAccount(String ownerName,
                        double balance,
-                       boolean isBlocked) {
+                       boolean isBlocked){
         this(ownerName, UUID.randomUUID().toString(), balance, isBlocked);
-        checkConditions();
     }
 
-    private void checkConditions() {
-        if (ownerName == null || ownerName.isBlank()) {
+    private void checkConditions(String ownerName, String accountNumber, double balance, boolean isBlocked) {
+        if (this.ownerName == null || this.ownerName.isBlank()) {
             throw new RuntimeException("Имя владельца не может быть пустым");
         }
-        if (accountNumber == null || accountNumber.isBlank()) {
+        if (this.accountNumber == null || this.accountNumber.isBlank()) {
             throw new RuntimeException("Номер счёт не может быть пустым");
         }
-        if (balance < 0) {
+        if (this.balance < 0) {
             throw new RuntimeException("Баланс не может быть отрицательным");
         }
     }

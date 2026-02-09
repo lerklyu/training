@@ -10,11 +10,11 @@ public class Main {
             BankAccount user1 = new BankAccount(
                     "Антонов В. В.",
                     "2100 2244 2444",
-                    15000.50,
+                    -15000.50,
                     false);
 
             BankAccount user2 = new BankAccount(
-                    "Горшков А. И.",
+                    "Федотов А. И.",
                     "2201 1234 5422",
                     true);
 
@@ -24,7 +24,7 @@ public class Main {
                     false);
 
             BankAccount userNull = new BankAccount(
-                    null,
+                    " ",
                     null,
                     123,
                     false);
