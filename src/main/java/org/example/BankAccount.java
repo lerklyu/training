@@ -22,24 +22,24 @@ public class BankAccount {
 
     public BankAccount(String ownerName,
                        String accountNumber,
-                       boolean isBlocked)  {
+                       boolean isBlocked) {
         this(ownerName, accountNumber, 0, isBlocked);
     }
 
     public BankAccount(String ownerName,
                        double balance,
-                       boolean isBlocked){
+                       boolean isBlocked) {
         this(ownerName, UUID.randomUUID().toString(), balance, isBlocked);
     }
 
     private void checkConditions(String ownerName, String accountNumber, double balance, boolean isBlocked) {
-        if (this.ownerName == null || this.ownerName.isBlank()) {
+        if (ownerName == null || ownerName.isBlank()) {
             throw new RuntimeException("Имя владельца не может быть пустым");
         }
-        if (this.accountNumber == null || this.accountNumber.isBlank()) {
+        if (accountNumber == null || accountNumber.isBlank()) {
             throw new RuntimeException("Номер счёт не может быть пустым");
         }
-        if (this.balance < 0) {
+        if (balance < 0) {
             throw new RuntimeException("Баланс не может быть отрицательным");
         }
     }
