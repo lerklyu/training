@@ -16,12 +16,10 @@ public class Main {
             BankAccount user2 = new BankAccount(
                     "Горшков А. И.",
                     "2201 1234 5422",
-                    0.00,
                     true);
 
             BankAccount user3 = new BankAccount(
                     "Степнов А. А.",
-                    "2200 2543 9685",
                     -130000.00,
                     false);
 
@@ -31,26 +29,19 @@ public class Main {
                     123,
                     false);
 
-            BankAccount userNotMoney = new BankAccount(
-                    "Безденежный И. В.",
-                    "0000 0000 0000",
-                    true);
-
             List<BankAccount> bankDataBase = new ArrayList<>();
 
             bankDataBase.add(user1);
             bankDataBase.add(user2);
             bankDataBase.add(user3);
             bankDataBase.add(userNull);
-            bankDataBase.add(userNotMoney);
 
             for (BankAccount bankAccount : bankDataBase) {
                 System.out.println(bankAccount.toString());
             }
 
-        } catch (Exception exception) {
-            System.out.println(exception.getMessage());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-
     }
 }
