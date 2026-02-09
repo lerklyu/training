@@ -13,6 +13,30 @@ public class BankAccount {
                        String accountNumber,
                        double balance,
                        boolean isBlocked) throws Exception {
+        checkConditions();
+        this.ownerName = ownerName;
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+        this.isBlocked = isBlocked;
+    }
+
+    public BankAccount(String ownerName,
+                       String accountNumber,
+                       boolean isBlocked) throws Exception {
+        checkConditions();
+        this.ownerName = ownerName;
+        this.accountNumber = accountNumber;
+        balance = 0;
+        this.isBlocked = isBlocked;
+    }
+
+    public BankAccount(String ownerName,
+                       double balance,
+                       boolean isBlocked) throws Exception {
+        this(ownerName, UUID.randomUUID().toString(), balance, isBlocked);
+    }
+
+    private void checkConditions() throws Exception {
         if (ownerName.isBlank()) {
             throw new Exception("Имя владельца не может быть пустым");
         }
@@ -22,28 +46,6 @@ public class BankAccount {
         if (balance < 0) {
             throw new Exception("Баланс не может быть отрицательным");
         }
-        this.ownerName = ownerName;
-        this.accountNumber = accountNumber;
-        this.balance = balance;
-        this.isBlocked = isBlocked;
-    }
-
-    public BankAccount(String ownerName,
-                       String accountNumber,
-                       boolean isBlocked) {
-        this.ownerName = ownerName;
-        this.accountNumber = accountNumber;
-        balance = 0;
-        this.isBlocked = isBlocked;
-    }
-
-    public BankAccount(String ownerName,
-                       double balance,
-                       boolean isBlocked) {
-        this.ownerName = ownerName;
-        accountNumber = UUID.randomUUID().toString();
-        this.balance = balance;
-        this.isBlocked = isBlocked;
     }
 
     @Override

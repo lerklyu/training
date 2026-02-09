@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
         try {
             BankAccount user1 = new BankAccount(
@@ -22,14 +22,27 @@ public class Main {
             BankAccount user3 = new BankAccount(
                     "Степнов А. А.",
                     "2200 2543 9685",
-                    130000.00,
+                    -130000.00,
                     false);
+
+            BankAccount userNull = new BankAccount(
+                    null,
+                    null,
+                    123,
+                    false);
+
+            BankAccount userNotMoney = new BankAccount(
+                    "Безденежный И. В.",
+                    "0000 0000 0000",
+                    true);
 
             List<BankAccount> bankDataBase = new ArrayList<>();
 
             bankDataBase.add(user1);
             bankDataBase.add(user2);
             bankDataBase.add(user3);
+            bankDataBase.add(userNull);
+            bankDataBase.add(userNotMoney);
 
             for (BankAccount bankAccount : bankDataBase) {
                 System.out.println(bankAccount.toString());
