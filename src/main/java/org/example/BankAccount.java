@@ -34,13 +34,13 @@ public class BankAccount {
 
     private void checkConditions(String ownerName, String accountNumber, double balance, boolean isBlocked) {
         if (ownerName == null || ownerName.isBlank()) {
-            throw new RuntimeException("Имя владельца не может быть пустым");
+            throw new NullPointerException("Имя владельца не может быть пустым");
         }
         if (accountNumber == null || accountNumber.isBlank()) {
-            throw new RuntimeException("Номер счёт не может быть пустым");
+            throw new NullPointerException("Номер счёт не может быть пустым");
         }
         if (balance < 0) {
-            throw new RuntimeException("Баланс не может быть отрицательным");
+            throw new IllegalArgumentException("Баланс не может быть отрицательным");
         }
     }
 
@@ -52,5 +52,21 @@ public class BankAccount {
                 ", balance=" + balance +
                 ", isBlocked=" + isBlocked +
                 '}';
+    }
+
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public boolean isBlocked() {
+        return isBlocked;
     }
 }
